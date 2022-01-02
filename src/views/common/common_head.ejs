@@ -1,0 +1,32 @@
+<meta charset="utf-8" />
+
+<%
+  var title = 'Title';
+  if (typeof heads.title === 'string') {
+    title = heads.title;
+  }
+%>
+<title><%= title %></title>
+
+<% if (typeof heads !== 'undefined') { %>
+  <% if (typeof heads.metas !== 'undefined') { %>
+    <% for (let i = 0; i < heads.metas.length; i++) { %>
+      <%- heads.metas[i] %>
+    <% } %>
+  <% } %>
+
+  <link href="/public/css/common/common.css" rel="stylesheet" type="text/css" />
+  <% if (typeof heads.links !== 'undefined') { %>
+    <% for (let i = 0; i < heads.links.length; i++) { %>
+      <%- heads.links[i] %>
+    <% } %>
+  <% } %>
+
+  <script src="/public/js/common/jquery-3.6.0.min.js"></script>
+  <script src="/public/js/common/common.js"></script>
+  <% if (typeof heads.scripts !== 'undefined') { %>
+    <% for (let i = 0; i < heads.scripts.length; i++) { %>
+      <%- heads.scripts[i] %>
+    <% } %>
+  <% } %>
+<% } %>
