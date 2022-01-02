@@ -18,6 +18,22 @@ const corsOptions = {
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 const corsMiddleWare = cors(corsOptions);
+/*
+// Redis 서버가 존재할 경우 이 멀티라인 주석을 해제와 함께 .env에 MAIN_REDIS_PORT, MAIN_REDIS_IP, MAIN_REDIS_PW 값을 기재해주세요.
+// @@ define redis config
+const redis = require('redis');
+const RedisStore = require('connect-redis')(session);
+const RedisClient = redis.createClient(process.env.MAIN_REDIS_PORT, process.env.MAIN_REDIS_IP);
+const redisConnectionResult = RedisClient.auth(process.env.MAIN_REDIS_PW, function(err) {
+  if (err) {
+    console.log('Redis 에러 발생');
+    console.log(err, " 에러 발생했습니다.");
+  } else {
+    console.log('Redis 연결 성공');
+  }
+});
+*/
+
 
 /*
   @@ <STEP 03> router import
@@ -71,7 +87,7 @@ app.use(session({
     maxAge: 60 * 60 * 1000, // 쿠키 지속 시간
     // sameSite: 'strict'
   },
-  // redis 서버가 있을 경우 아래 주석 해제
+  // redis 서버가 존재할 경우 아래 멀티 라인 주석을 해제해주세요.
   /*
   store: new RedisStore({
     client: RedisClient,
