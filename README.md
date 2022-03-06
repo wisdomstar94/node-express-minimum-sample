@@ -16,5 +16,5 @@ docker run -i -t -d --privileged -p 9020:9020 -p 3306:3306 -v 호스트경로:/h
 ```
 source /sh/copy_home2_to_home.sh
 ```
-3. 이제 호스트 os 에서 컨테이너에 있던 node-express-minimum-sample 프로젝트에 접근 가능
+3. 이제 호스트 os 에서 컨테이너에 있던 wisdomstar94/node-express-minimum-sample:latest 프로젝트에 접근 가능
 
