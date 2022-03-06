@@ -8,7 +8,7 @@ const setLogging = function(req, res, next) {
   const clientIP = requestIP.getClientIp(req);
 
   const block_ips = [
-    '::ffff:172.17.0.1', '172.17.0.1'
+    // '::ffff:172.17.0.1', '172.17.0.1'
   ];
 
   if (block_ips.includes(clientIP)) {
