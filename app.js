@@ -40,6 +40,8 @@ const redisConnectionResult = RedisClient.auth(process.env.MAIN_REDIS_PW, functi
 */
 const indexRouter = require('./src/routes/index/index');
 const testRouter = require('./src/routes/test/index');
+const authRouter = require('./src/routes/auth/index');
+const apiRouter = require('./src/routes/api/index');
 
 /*
   @@ <STEP 04> express app declare
@@ -112,6 +114,8 @@ app.use('/public', express.static(path.join(__dirname, 'src', 'public')));
 */
 app.use('/', indexRouter);
 app.use('/test', testRouter);
+app.use('/auth', authRouter);
+app.use('/api', apiRouter);
 
 /* 
   @@ <STEP 10> catch 404 and forward to error handler

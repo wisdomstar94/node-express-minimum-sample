@@ -15,6 +15,7 @@
   "author": "shinjaehyeon",
   "license": "ISC",
   "dependencies": {
+    "aes256": "^1.1.0",
     "app-root-path": "^3.0.0",
     "bluebird": "^3.7.2",
     "connect-redis": "^6.0.0",
@@ -27,6 +28,8 @@
     "express-session": "^1.17.2",
     "geoip-lite": "^1.4.2",
     "http-errors": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
     "mysql2": "^2.3.3",
     "redis": "^4.0.1",
     "request-ip": "^2.1.3",
