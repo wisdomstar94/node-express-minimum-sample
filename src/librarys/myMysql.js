@@ -143,7 +143,7 @@ const query = async(params) => {
     await this.releaseConnection({ conn: conn });
     throw new Error(`query 함수는 params.query 문자열 인자가 필요합니다.`);
   }
-  const query = params.query;
+  const querys = params.query;
 
   if (params.values === undefined) {
     // await conn.release();
@@ -153,7 +153,7 @@ const query = async(params) => {
   const values = params.values;
 
   try {
-    const [rows, fields] = await conn.query(query, values);
+    const [rows, fields] = await conn.query(querys, values);
     return rows;
   } catch (e) {
     // pool.releaseConnection(conn);

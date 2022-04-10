@@ -10,7 +10,7 @@ RUN /usr/local/git/bin/git clone https://github.com/wisdomstar94/node-express-mi
 
 # npm
 WORKDIR /home2/projects/node-express-minimum-sample
-RUN npm i
+# RUN npm i
 
 # Copy
 COPY docker/sh/copy_home2_to_home.sh /sh/copy_home2_to_home.sh
