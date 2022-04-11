@@ -23,7 +23,7 @@ const accessTokenCheck = function(req, res, next) {
   if (typeof accessToken !== 'string') {
     res.status(403).json({
       code: 1,
-      msg: '권한이 없습니다.',
+      msg: '토큰이 없음',
     });
     return;
   }
@@ -32,12 +32,21 @@ const accessTokenCheck = function(req, res, next) {
   try {
     req.accessTokenDecoded = jwt.verify(accessToken, process.env.JWT_SECRET);
   } catch (e) {
+    const name = e.name;
     myLogger.error(req.logHeadTail + e.stack);
     myLogger.error(req.logHeadTail + JSON.stringify(e));
 
+    if (name === 'TokenExpiredError') {
+      res.status(403).json({
+        code: 33,
+        msg: '만료된 토큰',
+      });
+      return;
+    }
+
     res.status(403).json({
       code: 2,
-      msg: '권한이 없습니다.',
+      msg: '유효한 토큰 아님',
     });
     return;
   }
