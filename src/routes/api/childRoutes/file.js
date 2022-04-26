@@ -48,6 +48,7 @@ const uploadFileUpload = multer({
 
 router.post('/upload', uploadFileUpload.single('upfile'), function(req, res, next) {
   console.log('req.file', req.file);
+  console.log('req.body', req.body);
 
   res.status(200).json({
     result: 'success',
