@@ -42,6 +42,7 @@ const indexRouter = require('./src/routes/index/index');
 const testRouter = require('./src/routes/test/index');
 const authRouter = require('./src/routes/auth/index');
 const apiRouter = require('./src/routes/api/index');
+const httpObservableTestRouter = require('./src/routes/http-observable-test/index');
 
 /*
   @@ <STEP 04> express app declare
@@ -116,6 +117,7 @@ app.use('/', indexRouter);
 app.use('/test', testRouter);
 app.use('/auth', authRouter);
 app.use('/api', apiRouter);
+app.use('/http-observable-test', httpObservableTestRouter);
 
 /* 
   @@ <STEP 10> catch 404 and forward to error handler
